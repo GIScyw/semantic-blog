@@ -1,0 +1,76 @@
+<br>
+<% post.comments.forEach(function (comment, index) { %>
+<div class="ui comments">
+    <div class="comment">
+        <a class="avatar">
+           <i class="user icon"></i>
+        </a>
+        <div class="content">
+            <a class="author"><%= comment.name %></a>
+            <div class="metadata">
+                <span class="date"><%= comment.time %></span>
+            </div>
+            <div class="text">
+                <%- comment.content %>
+            </div>
+        </div>
+        <div class="actions">
+            <a class="reply">Reply</a>
+            <a class="save">Save</a>
+            <a class="hide">Hide</a>
+            <a>
+                <i class="expand icon"></i>
+                Full-screen
+            </a>
+        </div>
+    </div>
+</div>
+<!--<div style="padding-left: 4em">-->
+    <!--<p>-->
+        <!--<img src="<%= comment.head %>" class="l_head">-->
+        <!--<a href="<%= comment.website %>"><%= comment.name %></a>-->
+        <!--<span class="info">回复于<%= comment.time %></span>-->
+    <!--</p>-->
+<!--</div>-->
+<!--<p><%- comment.content %></p>-->
+<% }) %>
+<form class="ui form" method="post">
+    <% if(user){ %>
+    <div class="filed">
+    <label>姓名: </label><input type="text" name="name" value="<%= user.name %>"></div>
+    <div class="field">
+    <label>邮箱: </label><input type="text" name="email" value="<%= user.email %>"></div>
+    <div class="field">
+    <label>网址: </label><input type="text" name="website" value="/u/<%= user.name %>"></div>
+    <% }else{ %>
+    <div class="field">
+    <label >姓名: </label> <input type="text" name="name"> </div>
+    <div class="field">
+    <label>邮箱: </label><input type="text" name="email"> </div>
+    <div class="field">
+    <label>网址: </label><input type="text" name="website"> </div>
+    <% } %>
+    <div class="field">
+        <textarea name="content" name="content" cols="80" rows="5"></textarea>
+    </div>
+    <input class="ui blue  button" type="submit" value="留言">
+</form>
+<!--<form method="post" class="ui form">-->
+    <!--<% if(user){ %>-->
+    <!--<div class="filed">-->
+        <!--<label>姓名: </label><input type="text" name="name" value="<%= user.name %>"></div>-->
+    <!--<div class="field">-->
+        <!--<label>邮箱: </label><input type="text" name="email" value="<%= user.email %>"></div>-->
+    <!--<div class="field">-->
+        <!--<label>网址: </label><input type="text" name="website" value="/u/<%= user.name %>"></div>-->
+    <!--<% }else{ %>-->
+    <!--<div class="field">-->
+        <!--<label >姓名: </label> <input type="text" name="name"> </div>-->
+        <!--<div class="field">-->
+            <!--<label>邮箱: </label><input type="text" name="email"> </div>-->
+            <!--<div class="field">-->
+                <!--<label>网址: </label><input type="text" name="website"> </div>-->
+    <!--<% } %>-->
+    <!--<textarea name="content" name="content" cols="80" rows="5"></textarea> <br>-->
+    <!--<br>-->
+    <!--<input class="ui button" type="submit" value="留言">-->

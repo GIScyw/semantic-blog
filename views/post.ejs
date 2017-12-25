@@ -1,0 +1,39 @@
+<%- include header %>
+<form class="ui form" method="post">
+
+    <div class="field">
+        <label >标题</label>
+            <div class="field">
+                <input type="text" name="title" placeholder="标题">
+            </div>
+    </div>
+    <div class="field">
+        <label>标签</label>
+        <div class="three fields">
+            <div class="field">
+                <input type="text" name="tag1" >
+            </div>
+            <div class="field">
+                <input type="text" name="tag2" >
+            </div>
+            <div class="field">
+                <input type="text" name="tag3" >
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <textarea name="post" cols="100" rows="20"></textarea>
+    </div>
+    <input class="ui button" type="submit" value="发表">
+</form>
+    <!--标题: <br>-->
+    <!--<input type="text" name="title"> <br>-->
+    <!--标签: <br>-->
+    <!--<input type="text" name="tag1">-->
+    <!--<input type="text" name="tag2">-->
+    <!--<input type="text" name="tag3"> <br>-->
+    <!--正文: <br>-->
+    <!--<textarea name="post" cols="100" rows="20"></textarea> <br>-->
+    <!--<input type="submit" value="发表">-->
+
+<%- include footer %>

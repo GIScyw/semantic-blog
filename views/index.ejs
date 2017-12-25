@@ -1,0 +1,41 @@
+<%- include header %>
+<div class="ui relaxed divided items">
+<% posts.forEach(function(post, index){ %>
+    <div class="item">
+        <div class="middle aligned content">
+<div class="header" style="margin:0 auto;padding-left: 10em"><h2><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%=post.title%></a></h2></div>
+<!--<p>-->
+<!--<h2><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></h2>-->
+<!--<a href="/u/<%= post.name %>">-->
+    <!--<img src="<%= post.head %>" class="r_head">-->
+<!--</a>-->
+<!--</p>-->
+<!--<p class="info">-->
+    <!--作者: <a href="/u/<%= post.name %>"><%= post.name %></a> | 日期: <%= post.time.minute %> |-->
+    <!--标签:-->
+    <!--<% post.tags.forEach(function(tag, index){ %>-->
+    <!--<% if (tag) { %>-->
+    <!--<a href="/tags/<%= tag %>" class="tag"><%= tag %></a>-->
+    <!--<% } %>-->
+    <!--<% }) %>-->
+     <!--| 阅读:<%=post.pv%> | 评论: <%=post.comments.length%>-->
+<!--</p>-->
+            <div class="description">
+                <a class="ui gray basic label" style="margin: 25px .14285714em">
+                    <%=post.time.minute%>
+                </a>
+                <a class="ui gray basic label" style="margin:25px .14285714em" >
+                    <%=post.name%>
+                </a>
+<p> <%- post.post.slice(3,160) %></p>
+
+<a class="ui basic right floated blue button" href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
+    阅读文章 &raquo;
+</a>
+            </div>
+        </div>
+    </div>
+<% }) %>
+</div>
+<%- include paging %>
+<%- include footer %>

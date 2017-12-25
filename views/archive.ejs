@@ -1,0 +1,58 @@
+<%- include header %>
+<ul class="archive">
+    <% var lastYear = 0 %>
+    <% posts.forEach(function(post, index){ %>
+    <% if(lastYear != post.time.year){ %>
+    <a class="ui red circular label"></a>
+    <a class="ui orange circular label"></a>
+    <a class="ui yellow circular label">track</a>
+    <a class="ui olive circular label">in</a>
+    <a class="ui green circular label"> <%= post.time.year %></a>
+    <a class="ui teal circular label"></a>
+    <a class="ui blue circular label"></a>
+    <% lastYear = post.time.year %>
+    <% } %>
+    <div class="ui centered card">
+        <div class="content">
+            <i class="right floated like icon"></i>
+            <i class="right floated star icon"></i>
+                <div class="header"><h3><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%=post.title%></a></h3></div>
+                <div class="meta">
+                    <span><%=post.time.minute%></span>
+                    <a><%=post.name%></a>
+                </div>
+            <div class="description">
+                <p></p>
+            </div>
+        </div>
+        <div class="extra content">
+    <span class="left floated like">
+      <i class="like icon"></i>
+      Like
+    </span>
+            <span class="right floated star">
+      <i class="star icon"></i>
+      Favorite
+    </span>
+        </div>
+    </div>
+
+    <!--<% if(lastYear != post.time.year){ %>-->
+    <!--<li>-->
+        <!--<h3>-->
+            <!--<%= post.time.year %>-->
+        <!--</h3>-->
+    <!--</li>-->
+    <!--<% lastYear = post.time.year %>-->
+    <!--<% } %>-->
+    <!--<li>-->
+        <!--<time>-->
+            <!--<%= post.time.day %>-->
+        <!--</time>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a>-->
+    <!--</li>-->
+    <% }) %>
+</ul>
+<%- include footer %>

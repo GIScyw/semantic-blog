@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Blog</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>
+        <%= title %>
+    </h1>
+</header>
+    <!--<span class="span1">-->
+        <!--<div class="ui icon small focus input">-->
+        <!--<form action="/search" method="GET">-->
+            <!--<input type="text" name="keyword" placeholder="search" class="search">-->
+            <!--<i class="search icon"></i>-->
+        <!--</form>-->
+        <!--</div>-->
+    <!--</span>-->
+        <!--<div class="six wide column" >-->
+             <!--<div class="ui  card " >-->
+                 <!--<div class="ui slide masked reveal image">-->
+                     <!--<img src="../images/github.jpg" class="visible content">-->
+                     <!--<img src="../images/jianshu.jpg" class="hidden content">-->
+                 <!--</div>-->
+                 <!--<div class="content">-->
+                     <!--<a class="header">step by step</a>-->
+                 <!--</div>-->
+             <!--</div>-->
+    <div class="ui fixed borderless huge big menu">
+        <div class="ui container">
+                    <a class="item" href="/" title="主页"><i class="home icon"></i>home</a>
+                    <a class="item" href="/archive" title="存档"><i class="folder open outline icon"></i>archive</a>
+                    <a class="item" href="/tags" title="标签"><i class="tags icon"></i>tags</a>
+                    <a class="item" href="/links" title="友情链接"><i class="lastfm square icon"></i>links</a>
+                    <% if (user){ %>
+                    <!--<a class="item" href="/upload" title="上传文件"><i class="folder outline icon"></i>upload</a>-->
+                    <a class="item" href="/post" title="发表"><i class="write square icon"></i>post</a>
+                    <a class="item" href="/logout" title="登出"><i class="sign out icon"></i>logout</a>
+                    <% }else{ %>
+                    <a class="item" href="/login" title="登录"><i class="sign in icon"></i>login</a>
+                    <a class="item" href="/reg" title="注册"><i class="add user icon"></i>register</a>
+                    <% } %>
+                    <div class="item">
+                        <div class="ui form">
+                            <div class="inline field">
+                                <div class="ui input">
+                                    <form action="/search" method="GET">
+                                    <input type="text" placeholder="search" name="keyword" class="search" />
+                                    </form>
+                                </div>
+                                <div class="ui button">
+                                    Submit
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+             <!--<div class="ui gray inverted borderless huge fluid menu">-->
+       <!--<a class="item" href="/" title="主页"><i class="home icon"></i>home</a>-->
+      <!--<a class="item" href="/archive" title="存档"><i class="folder open outline icon"></i>archive</a>-->
+      <!--<a class="item" href="/tags" title="标签"><i class="tags icon"></i>tags</a>-->
+      <!--<a class="item" href="/links" title="友情链接"><i class="lastfm square icon"></i>links</a>-->
+        <!--<% if (user){ %>-->
+        <!--<a class="item" href="/upload" title="上传文件"><i class="folder outline icon"></i>upload</a>-->
+        <!--<a class="item" href="/post" title="发表"><i class="write square icon"></i>post</a>-->
+      <!--<a class="item" href="/logout" title="登出"><i class="sign out icon"></i>logout</a>-->
+        <!--<% }else{ %>-->
+        <!--<a class="item" href="/login" title="登录"><i class="sign in icon"></i>login</a>-->
+      <!--<a class="item" href="/reg" title="注册"><i class="add user icon"></i>register</a>-->
+        <!--<% } %>-->
+                 <!--<div class="item">-->
+                     <!--<div class="ui icon  input">-->
+                         <!--<form action="/search" method="GET">-->
+                         <!--<input type="text" placeholder="search" name="keyword" class="search">-->
+                         <!--<i class="search icon"></i>-->
+                     <!--</div>-->
+                 <!--</div>-->
+             <!--<div class="ui icon small focus input">-->
+        <!--<form action="/search" method="GET">-->
+            <!--<input type="text" name="keyword" placeholder="search" class="search">-->
+            <!--<i class="search icon" ></i>-->
+        <!--</form>-->
+        <!--</div>-->
+         <!--</div>-->
+
+
+    <!--<div class="ten wide column" >-->
+    <div class="ui relaxed divided items" style="margin:7.5em 0">
+       <div class="item">
+           <div class="center aligned content">
+<article>
+    <% if(success){ %>
+    <div><%= success %></div>
+    <% } %>
+    <% if(error){ %>
+    <div><%= error %></div>
+<% } %>

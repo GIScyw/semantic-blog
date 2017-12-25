@@ -1,0 +1,51 @@
+<%- include header %>
+<% if (user && (user.name == post.name)){ %>
+<h1 class="ui center aligned dividing header"><%= post.title %></h1>
+<% } %>
+<p class="info">
+    <a class="ui label" href="/u/<%= post.name %>">作者:<%= post.name %></a><a class="ui label">日期:<%= post.time.minute %></a>
+    <a class="ui label">标签:</a>
+    <% post.tags.forEach(function(tag, index){ %>
+    <% if (tag) { %>
+    <a class="ui label" href="/tags/<%= tag %>" class="tag"><%= tag %></a>
+    <% } %>
+    <% }) %>
+    <a class="ui label">阅读:<%=post.pv%></a><a class="ui label">评论: <%=post.comments.length%></a>
+</p>
+<p>
+<div class="ui items">
+    <div class="item">
+        <div class="content">
+            <div class="description">
+            <%- post.post %>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ui left demo visible vertical inverted sidebar labeled icon menu">
+    <a class="item">
+        <a class="ui button" href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
+            <i class="block layout icon"></i>
+            编辑
+         </a>
+    </a>
+    <a class="item">
+        <a class="ui button" href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">
+        <i class="block layout icon"></i>
+        删除
+    </a>
+    </a>
+    <a class="item">
+        <a class="ui button" href="/upload">
+            <i class="block layout icon"></i>
+            上传
+        </a>
+    </a>
+</div>
+<br>
+<br>
+<div class="ui horizontal divider">
+    评论
+</div>
+<%- include comment %>
+<%- include footer %>

@@ -1,0 +1,41 @@
+<%- include header %>
+<% var lastYear = 0 %>
+<% posts.forEach(function(post, index){ %>
+<% if(lastYear != post.time.year){ %>
+    <h2 class="ui  center aligned   header">
+        <%= post.time.year %>
+    </h2>
+
+<% lastYear = post.time.year %>
+<% } %>
+<div class="ui  middle aligned  animated  relaxed list">
+    <div class="item">
+        <div class="content">
+            <div class="header"><h4 class="ui grey header"><%= post.time.day %></h4></div>
+            <a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><h3 class="ui teal  header"><%= post.title %></h3></a>
+        </div>
+    </div>
+</div>
+<% }) %>
+<!--<ul class="archive">-->
+    <!--<% var lastYear = 0 %>-->
+    <!--<% posts.forEach(function(post, index){ %>-->
+    <!--<% if(lastYear != post.time.year){ %>-->
+    <!--<li class="li">-->
+        <!--<h3>-->
+            <!--<%= post.time.year %>-->
+        <!--</h3>-->
+    <!--</li>-->
+    <!--<% lastYear = post.time.year %>-->
+    <!--<% } %>-->
+    <!--<li>-->
+        <!--<time>-->
+            <!--<%= post.time.day %>-->
+        <!--</time>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a>-->
+    <!--</li>-->
+    <!--<% }) %>-->
+<!--</ul>-->
+<%- include footer %>

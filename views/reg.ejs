@@ -1,0 +1,46 @@
+<%- include header %>
+<form method="post">
+    <div class="ui two column middle aligned very relaxed stackable grid">
+        <div class="column">
+            <div class="ui form">
+                <div class="field">
+                    <label>用户</label>
+                    <div class="ui left icon input">
+                        <input type="text" name="name" placeholder="用户名">
+                        <i class="user icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>密码</label>
+                    <div class="ui left icon input">
+                        <input type="password" name="password" placeholder="密码">
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>确认密码</label>
+                    <div class="ui left icon input">
+                        <input type="password" name="password" placeholder="确认密码">
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>邮箱</label>
+                    <div class="ui left icon input">
+                        <input type="password" name="password" placeholder="邮箱">
+                        <i class="mail icon"></i>
+                    </div>
+                </div>
+                <input class="ui blue submit button" name="loggin" type="submit" value="注册">
+            </div>
+        </div>
+    </div>
+</form>
+<!--<form method="post">-->
+    <!--用户名: <input type="text" name="name"/> <br>-->
+    <!--密码: <input type="password" name="password"> <br>-->
+    <!--确认密码: <input type="password" name="password-repeat"> <br>-->
+    <!--邮箱: <input type="email" name="email"> <br>-->
+    <!--<input type="submit" value="注册">-->
+<!--</form>-->
+<%- include footer %>

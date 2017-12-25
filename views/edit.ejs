@@ -1,0 +1,22 @@
+<%- include header %>
+<form method="post" class="ui form">
+    <div class="field">
+    <label>标题:</label> <br>
+
+        <input type="text" name="title" value="<%= post.title %>" disabled="disabled"> </div>
+    <div class="field">
+    <label>正文:</label> <br>
+
+        <textarea name="post" cols="100" rows="20"><%= post.post %></textarea> </div>
+    <div class="field">
+    <label>标签:</label> <br>
+    <div class="field">
+        <input type="text" name="tag1" value="<%=post.tags[0]%>" readonly></div>
+    <div class="field">
+        <input type="text" name="tag2" value="<%=post.tags[1]%>" readonly></div>
+    <div class="field">
+        <input type="text" name="tag3" value="<%=post.tags[2]%>" readonly></div>
+</div>
+    <input class="ui button" type="submit" value="保存修改">
+</form>
+<%- include footer %>

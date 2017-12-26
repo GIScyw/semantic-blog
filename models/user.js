@@ -1,9 +1,9 @@
 /**
  * Created by dongsj on 16/6/13.
  */
-var mongodb = require('./db');
+var mongodb = require('mongodb');
 var crypto = require('crypto');
-
+var settings = require('../settings');
 module.exports = User;
 
 function User(user) {
@@ -26,7 +26,7 @@ User.prototype.save = function (callback) {
         head: head
     };
 //打开数据库
-    mongodb.open(function (err, db) {
+    mongodb.MongoClient.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -51,7 +51,7 @@ User.prototype.save = function (callback) {
 };
 //读取用户信息
 User.get = function (name, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.MongoClient.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }

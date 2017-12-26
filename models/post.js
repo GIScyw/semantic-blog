@@ -62,7 +62,7 @@ Post.prototype.save = function (callback) {
 
 //读取文章信息
 Post.getAll = function (name, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(url.settings,function (err, db) {
         if (err) {
             return callback(err);
         }

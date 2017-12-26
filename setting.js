@@ -7,5 +7,5 @@ module.exports={
     host:'127.0.0.1',
     port:27017,
     // url:'mongodb://127.0.0.1/blog'
-    url: mongodb://chenyw:cyw4988181@ds131687.mlab.com:31687/blog
+    url: mongodb://chenyw:123456@ds131687.mlab.com:31687/blog
 };

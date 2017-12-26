@@ -1,8 +1,10 @@
 /**
  * Created by dongsj on 16/6/14.
  */
-var mongodb = require('./db');
+//var mongodb = require('./db');
+var mongodb=require('mongodb').Db;
 var markdown = require('markdown').markdown;
+ var settings = require('../settings');
 
 module.exports = Post;
 
@@ -34,7 +36,7 @@ Post.prototype.save = function (callback) {
         comments: [],
         pv: 0
     };
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -88,7 +90,7 @@ Post.getAll = function (name, callback) {
     })
 };
 Post.getTen = function (name, page, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -122,7 +124,7 @@ Post.getTen = function (name, page, callback) {
 };
 //读取文章信息*1
 Post.getOne = function (name, day, title, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -161,7 +163,7 @@ Post.getOne = function (name, day, title, callback) {
 };
 //获取文章列表
 Post.getArchive = function (callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -183,7 +185,7 @@ Post.getArchive = function (callback) {
 
 //读取标签信息
 Post.getTags = function (callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -204,7 +206,7 @@ Post.getTags = function (callback) {
     })
 };
 Post.getTag = function (tag, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -225,7 +227,7 @@ Post.getTag = function (tag, callback) {
 };
 //编辑文章
 Post.edit = function (name, day, title, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -253,7 +255,7 @@ Post.edit = function (name, day, title, callback) {
 };
 //更新文章
 Post.update = function (name, day, title, post, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -279,7 +281,7 @@ Post.update = function (name, day, title, post, callback) {
 };
 //删除文章
 Post.remove = function (name, day, title, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
@@ -305,7 +307,7 @@ Post.remove = function (name, day, title, callback) {
 };
 
 Post.search = function (keyword, callback) {
-    mongodb.open(function (err, db) {
+    mongodb.connect(settings.url,function (err, db) {
         if (err) {
             return callback(err);
         }
